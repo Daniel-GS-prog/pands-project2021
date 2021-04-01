@@ -6,6 +6,8 @@
 * [Technologies](#Technologies)
 * [Data set Description](#Dataset-Description)
 * [Variables - Description](#Variables-Description)
+  * [Summary](#Summary)
+  * [Visualisation](#Visualisation)
 * [Model's predictibility](#Model's-predictibility)
 * [Conclusions](#Conclusions)
 * [References](#References)
@@ -53,8 +55,8 @@ import seaborn as sns
 * With Seaborn we will display the scatterplots
 ---
 ## Data set Description
-<br>
 
+<br>
 The source of the data set is :
 
 ```
@@ -81,17 +83,23 @@ dataset = pd.read_csv("iris.data.csv")
 
 ```
 
-We can cjeck the number of instances for each variety with:
+We can check the number of instances for each variety with:
 ```python
 dataset.groupby("variety").size()
 ```
 Resulting in:
 ```python
-variety
-Iris-setosa        49
-Iris-versicolor    50
-Iris-virginica     50
-dtype: int64
+|-----------------------|
+| variety               |
+|-----------------------|
+| Iris-setosa        49 |
+|-----------------------|
+| Iris-versicolor    50 |
+|-----------------------|
+| Iris-virginica     50 |
+|-----------------------|
+| dtype: int64          |
+|-----------------------|
 ```
 
  With the following code we can structure the attribute's names and access a sample (first instance) of the database:
@@ -104,8 +112,11 @@ dataset.head(1)
 
 The result: 
  ```python
-   sepal length  sepal width  petal lenght  petal width      variety
-          4.9          3.0           1.4          0.2       Iris-setosa
+|-------------------------------------------------------------------------|
+| sepal length  sepal width  petal lenght  petal width      variety       |
+|-------------------------------------------------------------------------|
+|           4.9          3.0           1.4          0.2       Iris-setosa |
+|-------------------------------------------------------------------------|
 ```
  
 
@@ -115,10 +126,9 @@ The result:
 We can access a summary of each variable with the following code:
 ```python
 variable_summary = dataset.describe()
+
 #The transpose() will make it easier to read:
 variable_summary_t = variable_summary.transpose() 
-print(variable_summary_t)
-
 ```
 
 With the following result: 
@@ -135,6 +145,14 @@ With the following result:
 | petal width   149.0  1.205369  0.761292  0.1  0.3  1.3  1.8  2.5 |
 |------------------------------------------------------------------|
 ```
+
+We will save the results as a text file:
+```python
+variable_summary_t.to_csv("summary.txt")
+#And that file as a readable table in the file summary_table.txt
+```
+
+
 
 
 ---
