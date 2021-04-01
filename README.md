@@ -4,7 +4,7 @@
 * [Project Description](#Project-Description)
 * [Introduction](#Introduction)
 * [Technologies](#Technologies)
-* [Dataset Description](#Dataset-Description)
+* [Data set Description](#Dataset-Description)
 * [Variables - Description](#Variables-Description)
 * [Model's predictibility](#Model's-predictibility)
 * [Conclusions](#Conclusions)
@@ -36,10 +36,31 @@ However, it's interesting to mention the context in which this research was cond
 ---
 
 ## Technologies
----
-## Dataset Description
+For this project we used Python 3.7.6, and the following libraries:
+``` python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
+```
 
-The dataset contains 3 classes of 50 instances each, where each class refers to a type of iris plant. 
+* Pandas will be used to summary the data.
+
+* Matplotlib will create the histograms for each variable and variable combination
+
+* With Seaborn we will display the scatterplots
+---
+## Data set Description
+<br>
+
+The source of the data set is :
+
+```
+http://archive.ics.uci.edu/ml/datasets/Iris
+```
+<br>
+The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. 
+
 The attributes are:
 * Sepal length in cm
 * Sepal width in cm
@@ -51,11 +72,28 @@ The attributes are:
     * Iris Virginica
 
 <br>
-The source of the dataset is :
+We will read the data with:
 
 ```
-http://archive.ics.uci.edu/ml/datasets/Iris
+dataset = pd.read_csv("iris.data.csv")
+
 ```
+
+ With the following code we can structure the attribute's names and access a sample (first instance) of the database:
+
+```
+dataset.columns = ["sepal length", "sepal width", "petal lenght", "petal width", "variety"]
+
+print(dataset.head(1))
+```
+
+The result: 
+ ```
+   sepal length  sepal width  petal lenght  petal width      variety
+          4.9          3.0           1.4          0.2       Iris-setosa
+```
+ 
+
 ---
 ## Variables - Description
 ---
