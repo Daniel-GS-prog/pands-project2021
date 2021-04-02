@@ -32,7 +32,6 @@ The data set has the attributes of 150 itis flowers. The goal was to create a li
 
 The publication of "The Use of Multiple Measurements in TAxonomic Problems", had tremendous success, which is the reason why it's so widely used and studied. 
 
-However, it's interesting to mention the context in which this research was conducted. Ficher was a vocal proponent of eugenics. "One of the points of the paper (and the journal, and of Fisher's leading roe in developing biometry and biostatistics) was to propose a methodological framework to delineate desirable traits, in support of eugenics programs."("Armchair Ecology, 2020")
 
 Iris flowers varieties:
 
@@ -251,5 +250,30 @@ Cheking the data from the description, we can see these differences between all 
 
 ---
 ## Conclusions
+We can conclude that the Fisher's data set is very useful for the process of learning python and data analysis. It's clear and manageable data makes it a good starting point, but we must enphazise the importance of all the analysis available in the community (hundreds of examples and different ways of learning with this dataset).
+
+This process has shown us how useful python can be. There are, of course, more complete analysis, ones that we couldn't understand. But with under 20 lines of code, it's possible to generate a simple study of the data that can lead future and deeper analysis.
+ 
+ 
 ---
 ## References
+
+AdrianDonohoe. “AdrianDonohoe/Pands-Project.” GitHub, 2021, github.com/AdrianDonohoe/pands-project/blob/master/README.md. Accessed 2 Apr. 2021.
+
+Amit Arora. “Plot Histogram with Specific Color, Edge Color and Line Width.” Python Programming, Pythonprogramming, 19 Nov. 2018, www.pythonprogramming.in/plot-histogram-with-specific-color-edge-color-and-line-width.html. Accessed 2 Apr. 2021.---.
+
+
+ “IRIS Dataset Analysis (Python).” Ritvik Raj, Ritvik Raj, 28 June 2017, rajritvikblog.wordpress.com/2017/06/29/iris-dataset-analysis-python/. Accessed 2 Apr. 2021.
+ 
+ 
+ KHibma. “Modify Output from Python Pandas Describe.” Stack Overflow, 1 Oct. 2013, stackoverflow.com/questions/19124148/modify-output-from-python-pandas-describe. Accessed 2 Apr. 2021.
+ 
+ killfoley. “Killfoley/Pands-Project.” GitHub, 29 Apr. 2020, github.com/killfoley/pands-project/blob/master/README.md. Accessed 2 Apr. 2021.
+ 
+ Oluwasogo Oluwafemi Ogundowole. “Basic Analysis of the Iris Data Set Using Python - CodebagNG - Medium.” Medium, CodebagNG, 31 Oct. 2017, medium.com/codebagng/basic-analysis-of-the-iris-data-set-using-python-2995618a6342. Accessed 2 Apr. 2021.---. 
+ 
+ “Pandas.DataFrame.loc — Pandas 1.2.3 Documentation.” Pydata.org, 2021, pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html. Accessed 2 Apr. 2021.
+ 
+ “Scatterplot Matrix — Seaborn 0.11.1 Documentation.” Pydata.org, 2012, seaborn.pydata.org/examples/scatterplot_matrix.html. Accessed 2 Apr. 2021.
+ 
+ Traversy Media. “Markdown Crash Course.” YouTube, 23 Mar. 2018, www.youtube.com/watch?v=HUBNt18RFbo&t=851s. Accessed 2 Apr. 2021.
