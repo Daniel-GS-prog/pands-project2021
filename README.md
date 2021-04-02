@@ -4,13 +4,14 @@
 * [Project Description](#Project-Description)
 * [Introduction](#Introduction)
 * [Technologies](#Technologies)
-* [Data set Description](#Dataset-Description)
-* [Variables - Description](#Variables-Description)
-  * [Summary](#Summary)
-  * [Visualisation](#Visualisation)
+* [Data set description](#Data-set-description)
+  * [Variables-Description](#Variables-Description)
+    * [Summary](#Summary)
+    * [Visualisation](#Visualisation)
 * [Model's predictibility](#Model's-predictibility)
 * [Conclusions](#Conclusions)
 * [References](#References)
+
 
 ---
 
@@ -20,6 +21,8 @@ This research aims to analize the Ficher's Iris Dataset. First we will perform a
 Each segment will have a description and code samples.
 
 The analysis is the final project of a module in Pytohn Programming, and the final goal is to refine our skills with python as a data analysis tool.
+
+---
 
 ## Introduction
 The Iris flower data set (or Ficher's Iris data set) is a multivariable data set created by the British statistician, eigenecist, and biologist Ronald Fisher in 1936. 
@@ -56,7 +59,6 @@ import seaborn as sns
 ---
 ## Data set Description
 
-<br>
 The source of the data set is :
 
 ```
@@ -105,54 +107,61 @@ Resulting in:
  With the following code we can structure the attribute's names and access a sample (first instance) of the database:
 
 ```python
-dataset.columns = ["sepal length", "sepal width", "petal lenght", "petal width", "variety"]
+dataset = pd.read_csv("iris.data.csv", header=None, names=["sepal length", "sepal width", "petal lenght", "petal width", "variety"])
 
 dataset.head(1)
 ```
 
 The result: 
  ```python
-|-------------------------------------------------------------------------|
-| sepal length  sepal width  petal lenght  petal width      variety       |
-|-------------------------------------------------------------------------|
-|           4.9          3.0           1.4          0.2       Iris-setosa |
-|-------------------------------------------------------------------------|
+|----------------------------------------------------------------------|
+|    sepal length  sepal width  petal lenght  petal width      variety |
+|----------------------------------------------------------------------|
+| 0           5.1          3.5           1.4          0.2  Iris-setosa |
+|----------------------------------------------------------------------|
 ```
  
 
 ---
-## Variables - Description
+## Variables Description
 
-We can access a summary of each variable with the following code:
+### Summary
+
+To access a description of each variable, we will first set the indexes:
+
 ```python
-variable_summary = dataset.describe()
-
-#The transpose() will make it easier to read:
-variable_summary_t = variable_summary.transpose() 
+setosa = dataset.loc[:49]
+versicolor = dataset.loc[49:99]
+virginica = dataset.loc[99:]
 ```
-
-With the following result: 
-```
-|------------------------------------------------------------------|
-|               count      mean       std  min  25%  50%  75%  max |
-|------------------------------------------------------------------|
-| sepal length  149.0  5.848322  0.828594  4.3  5.1  5.8  6.4  7.9 |
-|------------------------------------------------------------------|
-| sepal width   149.0  3.051007  0.433499  2.0  2.8  3.0  3.3  4.4 |
-|------------------------------------------------------------------|
-| petal lenght  149.0  3.774497  1.759651  1.0  1.6  4.4  5.1  6.9 |
-|------------------------------------------------------------------|
-| petal width   149.0  1.205369  0.761292  0.1  0.3  1.3  1.8  2.5 |
-|------------------------------------------------------------------|
-```
-
-We will save the results as a text file:
+Then, we can describe them:
 ```python
-variable_summary_t.to_csv("summary.txt")
-#And that file as a readable table in the file summary_table.txt
+s = setosa.describe()
+ver = versicolor.describe()
+vir = virginica.describe()
+```
+
+And we will save a summary of each variable grouped by variery of flower to a file:
+```python
+variable_summary = dataset.groupby("variety").describe()
+
+variable_summary.to_csv("summary.txt")
+# With a copy in table format in the file summary_table.txt
+
 ```
 
 
+
+## Visualisation
+
+With histograms we can see the distribution for each attribute:
+```python
+dataset.hist(color = "darkslateblue", edgecolor="yellow")
+
+```
+![variable Histogram](variable_histograms.png)
+
+In both sepal lenght and sepal width we can see a distribution close to normal. However, in petal lenght and petal width, there are two different bodies of data (especially in petal lenght).
 
 
 ---
