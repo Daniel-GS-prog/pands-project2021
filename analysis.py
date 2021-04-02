@@ -7,23 +7,44 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
-dataset = pd.read_csv("iris.data.csv")
+dataset = pd.read_csv("iris.data.csv", header=None, names=["sepal length", "sepal width", "petal lenght", "petal width", "variety"])
 # Reads data from file
 
-dataset.columns = ["sepal length", "sepal width", "petal lenght", "petal width", "variety"]
-# Definning attributes
 
-#print(dataset.head(1))
+print(dataset.head(1))
 #prints 1 instance as a sample
 
-variable_summary = dataset.describe() 
-#print(variable_summary)
+variable_summary = dataset.groupby("variety").describe()
+# Describes all variables grouped by variety of flower
 
-variable_summary_t = variable_summary.transpose() 
-# Prints a summary of each variable
+#variable_summary.to_csv("summary.txt")
+#saves the summary as a text file
 
-#print(dataset.groupby("variety").size())
+#variable_summary.to_csv("summary_table.txt")
+# Copy of the file as a readable table
 
-#variable_summary_t.to_csv("summary.txt")
+setosa = dataset.loc[:49]
+versicolor = dataset.loc[49:99]
+virginica = dataset.loc[99:]
+# Setting indexes for each variety
 
+""" s = setosa.describe()
+ver = versicolor.describe()
+vir = virginica.describe() """
+# Defines a descrive function to each variety
+
+#print(s)
+#print(ver)
+#print(vir)
+# Prints each description
+
+
+dataset.hist(color = "darkslateblue", edgecolor="yellow")
+# Changing colors of histogram
+
+#plt.savefig(fname="variable_histograms.png")
+# Saves the histograms to a .png file
+
+#plt.show()
+# Display plot
 
