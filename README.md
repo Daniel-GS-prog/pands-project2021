@@ -8,7 +8,6 @@
   * [Variables-Description](#Variables-Description)
     * [Summary](#Summary)
     * [Visualisation](#Visualisation)
-* [Model's predictibility](#Model's-predictibility)
 * [Conclusions](#Conclusions)
 * [References](#References)
 
@@ -45,7 +44,6 @@ Iris flowers varieties:
 ## Technologies
 For this project we used Python 3.7.6, and the following libraries:
 ``` python
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -127,20 +125,93 @@ The result:
 
 ### Summary
 
-To access a description of each variable, we will first set the indexes:
+To access a description of each variable, we will first group the data by variety of flower:
 
 ```python
-setosa = dataset.loc[:49]
-versicolor = dataset.loc[49:99]
-virginica = dataset.loc[99:]
+setosa = dataset[dataset["variety"] =="Iris-setosa"]
+versicolor = dataset[dataset["variety"] =="Iris-versicolor"]
+virginica = dataset[dataset["variety"] =="Iris-virginica"]
 ```
 Then, we can describe them:
 ```python
-s = setosa.describe()
-ver = versicolor.describe()
-vir = virginica.describe()
+setosa.describe()
+versicolor.describe()
+virginica.describe()
 ```
 
+
+```
+|-------------------------------------------------------------|
+| Iris setosa:                                                |
+|-------------------------------------------------------------|
+|        sepal length  sepal width  petal lenght  petal width |
+|-------------------------------------------------------------|
+| count      50.00000    50.000000     50.000000     50.00000 |
+|-------------------------------------------------------------|
+| mean        5.00600     3.418000      1.464000      0.24400 |
+|-------------------------------------------------------------|
+| std         0.35249     0.381024      0.173511      0.10721 |
+|-------------------------------------------------------------|
+| min         4.30000     2.300000      1.000000      0.10000 |
+|-------------------------------------------------------------|
+| 25%         4.80000     3.125000      1.400000      0.20000 |
+|-------------------------------------------------------------|
+| 50%         5.00000     3.400000      1.500000      0.20000 |
+|-------------------------------------------------------------|
+| 75%         5.20000     3.675000      1.575000      0.30000 |
+|-------------------------------------------------------------|
+| max         5.80000     4.400000      1.900000      0.60000 |
+|-------------------------------------------------------------|
+
+```
+```
+|-------------------------------------------------------------|
+| Iris versicolor:                                            |
+|-------------------------------------------------------------|
+|        sepal length  sepal width  petal lenght  petal width |
+|-------------------------------------------------------------|
+| count     50.000000    50.000000     50.000000    50.000000 |
+|-------------------------------------------------------------|
+| mean       5.936000     2.770000      4.260000     1.326000 |
+|-------------------------------------------------------------|
+| std        0.516171     0.313798      0.469911     0.197753 |
+|-------------------------------------------------------------|
+| min        4.900000     2.000000      3.000000     1.000000 |
+|-------------------------------------------------------------|
+| 25%        5.600000     2.525000      4.000000     1.200000 |
+|-------------------------------------------------------------|
+| 50%        5.900000     2.800000      4.350000     1.300000 |
+|-------------------------------------------------------------|
+| 75%        6.300000     3.000000      4.600000     1.500000 |
+|-------------------------------------------------------------|
+| max        7.000000     3.400000      5.100000     1.800000 |
+|-------------------------------------------------------------|
+```
+```
+|-------------------------------------------------------------|
+| Iris virginica:                                             |
+|-------------------------------------------------------------|
+|        sepal length  sepal width  petal lenght  petal width |
+|-------------------------------------------------------------|
+| count      50.00000    50.000000     50.000000     50.00000 |
+|-------------------------------------------------------------|
+| mean        6.58800     2.974000      5.552000      2.02600 |
+|-------------------------------------------------------------|
+| std         0.63588     0.322497      0.551895      0.27465 |
+|-------------------------------------------------------------|
+| min         4.90000     2.200000      4.500000      1.40000 |
+|-------------------------------------------------------------|
+| 25%         6.22500     2.800000      5.100000      1.80000 |
+|-------------------------------------------------------------|
+| 50%         6.50000     3.000000      5.550000      2.00000 |
+|-------------------------------------------------------------|
+| 75%         6.90000     3.175000      5.875000      2.30000 |
+|-------------------------------------------------------------|
+| max         7.90000     3.800000      6.900000      2.50000 |
+|-------------------------------------------------------------|
+```
+```
+```
 And we will save a summary of each variable grouped by variery of flower to a file:
 ```python
 variable_summary = dataset.groupby("variety").describe()
@@ -151,7 +222,6 @@ variable_summary.to_csv("summary.txt")
 ```
 
 
-
 ## Visualisation
 
 With histograms we can see the distribution for each attribute:
@@ -159,13 +229,26 @@ With histograms we can see the distribution for each attribute:
 dataset.hist(color = "darkslateblue", edgecolor="yellow")
 
 ```
-![variable Histogram](variable_histograms.png)
+![variable Histogram](histograms.png)
 
-In both sepal lenght and sepal width we can see a distribution close to normal. However, in petal lenght and petal width, there are two different bodies of data (especially in petal lenght).
+<br>
+And the scatter plot matrix will reveal the differences between the different varieties:
+
+```
+sns.pairplot(dataset, hue="variety")
+plt.savefig(fname="scatterplot.png")
+```
+
+![Variety Scatterplot](scatterplot.png)
+
+We can see that petal lenght and petal width are the attributes that most efficiently differenciate the Iris-Setosa variety.
+
+Cheking the data from the description, we can see these differences between all varieties:
+
+  * In petal lenght, setosa has a mean of 1.464, while versicolor and virginica have 4.26 and 5.552, respectively.
+  * In petal width, the values are 0.244 for setosa, 1.326 for versicolor and 2.02600 for virginica.
 
 
----
-## Model's predictibility
 ---
 ## Conclusions
 ---
