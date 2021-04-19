@@ -51,8 +51,11 @@ dataset.hist(color = "darkslateblue", edgecolor="yellow")
 plt.savefig(fname="histograms.png")
 # Saves the histograms to a .png file
 
-sns.pairplot(dataset, hue="variety")
-#plt.savefig(fname="scatterplot.png")
+a = sns.PairGrid(dataset, hue="variety")
+a.map_diag(sns.histplot)
+a.map_offdiag(sns.scatterplot)
+a.add_legend()
+plt.savefig(fname="scatterplot.png")
 
 plt.show()
 # Display plot
