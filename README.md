@@ -234,7 +234,10 @@ dataset.hist(color = "darkslateblue", edgecolor="yellow")
 And the scatter plot matrix will reveal the differences between the different varieties:
 
 ```
-sns.pairplot(dataset, hue="variety")
+a = sns.PairGrid(dataset, hue="variety")
+a.map_diag(sns.histplot)
+a.map_offdiag(sns.scatterplot)
+a.add_legend()
 plt.savefig(fname="scatterplot.png")
 ```
 
@@ -275,5 +278,7 @@ Amit Arora. “Plot Histogram with Specific Color, Edge Color and Line Width.”
  “Pandas.DataFrame.loc — Pandas 1.2.3 Documentation.” Pydata.org, 2021, pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html. Accessed 2 Apr. 2021.
  
  “Scatterplot Matrix — Seaborn 0.11.1 Documentation.” Pydata.org, 2012, seaborn.pydata.org/examples/scatterplot_matrix.html. Accessed 2 Apr. 2021.
+
+ Sulav Ojha. “Exploratory Data Analysis on IRIS DATASET - Sulav Ojha - Medium.” Medium, Medium, 15 July 2019, medium.com/@sulavojha11/exploratory-data-analysis-on-iris-dataset-84832e519040. Accessed 19 Apr. 2021.
  
  Traversy Media. “Markdown Crash Course.” YouTube, 23 Mar. 2018, www.youtube.com/watch?v=HUBNt18RFbo&t=851s. Accessed 2 Apr. 2021.
