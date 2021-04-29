@@ -1,8 +1,6 @@
 # Code for pands-project2021
 # Author: Daniel Gonzalez
 
-
-
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -45,18 +43,38 @@ print(virginica.describe())
 
 ### --- Visualisation:
 
-dataset.hist(color = "darkslateblue", edgecolor="yellow")
-# Changing colors of histogram
+## HISTOGRAMS:
 
-plt.savefig(fname="histograms.png")
-# Saves the histograms to a .png file
+def histograms(attribute):
+    # Takes in an flower attribute
+    # Displays a histogram with all variety of flower
 
-a = sns.PairGrid(dataset, hue="variety")
-a.map_diag(sns.histplot)
-a.map_offdiag(sns.scatterplot)
-a.add_legend()
-plt.savefig(fname="scatterplot.png")
+    sns.distplot(setosa[attribute], label = "Iris setosa")
+    sns.distplot(virginica[attribute], label = "Iris virginica")
+    sns.distplot(versicolor[attribute],label = "Iris versicolor")
+    plt.title(attribute)
+    plt.ylabel("Frequency")
+    plt.legend()
+    plt.savefig(attribute + ".png")
+    plt.show()
 
-plt.show()
-# Display plot
 
+def scatterplot(attribute1, attribute2):
+    # Takes two attributes
+    # Displays a scatterplot of those attributes
+    # For all varieties
+    sns.scatterplot(data = dataset, x = attribute1, y = attribute2, hue="variety", marker = "o")
+    plt.title(attribute1 + "-" + attribute2)
+    plt.xlabel(attribute1)
+    plt.ylabel(attribute2)
+    plt.legend()
+    plt.savefig(attribute1 +"-"+ attribute2 + ".png")
+    plt.show()
+
+histograms("petal width")
+histograms("sepal length")
+histograms("sepal width")
+histograms("petal lenght")
+
+scatterplot("petal width", "petal lenght")
+scatterplot("sepal width", "sepal length")
