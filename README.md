@@ -236,7 +236,7 @@ def histograms(attribute):
     plt.show()
 
 ```
-![variable Histogram](petal_length.png)
+![variable Histogram](petal_lenght.png)
 
 ![variable Histogram](petal_width.png)
 
