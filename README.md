@@ -225,23 +225,42 @@ variable_summary.to_csv("summary.txt")
 
 With histograms we can see the distribution for each attribute:
 ```python
-dataset.hist(color = "darkslateblue", edgecolor="yellow")
+def histograms(attribute):
+    sns.distplot(setosa[attribute], label = "Iris setosa")
+    sns.distplot(virginica[attribute], label = "Iris virginica")
+    sns.distplot(versicolor[attribute],label = "Iris versicolor")
+    plt.title(attribute)
+    plt.ylabel("Frequency")
+    plt.legend()
+    plt.savefig(attribute + ".png")
+    plt.show()
 
 ```
-![variable Histogram](histograms.png)
+![variable Histogram](petal_length.png)
+
+![variable Histogram](petal_width.png)
+
+![variable Histogram](sepal_length.png)
+
+![variable Histogram](sepal_width.png)
 
 <br>
-And the scatter plot matrix will reveal the differences between the different varieties:
+And the scatter plot will show the relation between the attributes:
 
+```python
+def scatterplot(attribute1, attribute2):
+    sns.scatterplot(data = dataset, x = attribute1, y = attribute2, hue="variety", marker = "o")
+    plt.title(attribute1 + "-" + attribute2)
+    plt.xlabel(attribute1)
+    plt.ylabel(attribute2)
+    plt.legend()
+    plt.savefig(attribute1 +"-"+ attribute2 + ".png")
+    plt.show()
 ```
-a = sns.PairGrid(dataset, hue="variety")
-a.map_diag(sns.histplot)
-a.map_offdiag(sns.scatterplot)
-a.add_legend()
-plt.savefig(fname="scatterplot.png")
-```
+![Variety Scatterplot](petal_width-petal_lenght.png)
+![Variety Scatterplot](sepal_width-sepal_length.png)
 
-![Variety Scatterplot](scatterplot.png)
+
 
 We can see that petal lenght and petal width are the attributes that most efficiently differenciate the Iris-Setosa variety.
 
@@ -276,9 +295,15 @@ Amit Arora. “Plot Histogram with Specific Color, Edge Color and Line Width.”
  Oluwasogo Oluwafemi Ogundowole. “Basic Analysis of the Iris Data Set Using Python - CodebagNG - Medium.” Medium, CodebagNG, 31 Oct. 2017, medium.com/codebagng/basic-analysis-of-the-iris-data-set-using-python-2995618a6342. Accessed 2 Apr. 2021.---. 
  
  “Pandas.DataFrame.loc — Pandas 1.2.3 Documentation.” Pydata.org, 2021, pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.loc.html. Accessed 2 Apr. 2021.
- 
+
+Pushpendra Kumar. (2019, October 7). Exploratory Data Analysis: Iris Flower Dataset - Analytics Vidhya - Medium. Retrieved April 29, 2021, from Medium website: https://medium.com/analytics-vidhya/exploratory-data-analysis-iris-flower-dataset-a21c368a1f4
+
+‌
  “Scatterplot Matrix — Seaborn 0.11.1 Documentation.” Pydata.org, 2012, seaborn.pydata.org/examples/scatterplot_matrix.html. Accessed 2 Apr. 2021.
 
  Sulav Ojha. “Exploratory Data Analysis on IRIS DATASET - Sulav Ojha - Medium.” Medium, Medium, 15 July 2019, medium.com/@sulavojha11/exploratory-data-analysis-on-iris-dataset-84832e519040. Accessed 19 Apr. 2021.
  
  Traversy Media. “Markdown Crash Course.” YouTube, 23 Mar. 2018, www.youtube.com/watch?v=HUBNt18RFbo&t=851s. Accessed 2 Apr. 2021.
+
+
+‌
