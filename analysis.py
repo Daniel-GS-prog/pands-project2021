@@ -8,7 +8,7 @@ import seaborn as sns
 
 ### --- Description:
 
-dataset = pd.read_csv("iris.data.csv", header=None, names=["sepal length", "sepal width", "petal lenght", "petal width", "variety"])
+dataset = pd.read_csv("iris.data.csv", header=None, names=["sepal_length", "sepal_width", "petal_lenght", "petal_width", "variety"])
 # Reads data from file
 
 print(dataset.head(1))
@@ -71,10 +71,10 @@ def scatterplot(attribute1, attribute2):
     plt.savefig(attribute1 +"-"+ attribute2 + ".png")
     plt.show()
 
-histograms("petal width")
-histograms("sepal length")
-histograms("sepal width")
-histograms("petal lenght")
+histograms("petal_width")
+histograms("sepal_length")
+histograms("sepal_width")
+histograms("petal_lenght")
 
-scatterplot("petal width", "petal lenght")
-scatterplot("sepal width", "sepal length")
+scatterplot("petal_width", "petal_lenght")
+scatterplot("sepal_width", "sepal_length")
