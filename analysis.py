@@ -71,6 +71,14 @@ def scatterplot(attribute1, attribute2):
     plt.savefig(attribute1 +"-"+ attribute2 + ".png")
     plt.show()
 
+
+x = sns.PairGrid(dataset, hue="variety")
+x.map_diag(sns.histplot)
+x.map_offdiag(sns.scatterplot)
+x.add_legend()
+plt.savefig("matrix.png")
+plt.show()
+
 histograms("petal_width")
 histograms("sepal_length")
 histograms("sepal_width")
@@ -78,3 +86,5 @@ histograms("petal_lenght")
 
 scatterplot("petal_width", "petal_lenght")
 scatterplot("sepal_width", "sepal_length")
+scatterplot("sepal_width", "petal_width" )
+scatterplot("sepal_length", "petal_lenght")
