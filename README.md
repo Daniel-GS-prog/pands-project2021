@@ -310,12 +310,20 @@ Amit Arora. “Plot Histogram with Specific Color, Edge Color and Line Width.”
 
 Pushpendra Kumar. (2019, October 7). Exploratory Data Analysis: Iris Flower Dataset - Analytics Vidhya - Medium. Retrieved April 29, 2021, from Medium website: https://medium.com/analytics-vidhya/exploratory-data-analysis-iris-flower-dataset-a21c368a1f4
 
+Pranav Prathvikumar. (2019, November 11). Visualizing statistical plots with Seaborn - Towards Data Science. Retrieved April 30, 2021, from Medium website: https://towardsdatascience.com/visualizing-statistical-plots-with-seaborn-6b6e60ce5e71
+
 ‌
  “Scatterplot Matrix — Seaborn 0.11.1 Documentation.” Pydata.org, 2012, seaborn.pydata.org/examples/scatterplot_matrix.html. Accessed 2 Apr. 2021.
+
+ Seaborn - Pair Grid - Tutorialspoint. (2021). Retrieved April 30, 2021, from Tutorialspoint.com website: https://www.tutorialspoint.com/seaborn/seaborn_pair_grid.htm
 
  Sulav Ojha. “Exploratory Data Analysis on IRIS DATASET - Sulav Ojha - Medium.” Medium, Medium, 15 July 2019, medium.com/@sulavojha11/exploratory-data-analysis-on-iris-dataset-84832e519040. Accessed 19 Apr. 2021.
  
  Traversy Media. “Markdown Crash Course.” YouTube, 23 Mar. 2018, www.youtube.com/watch?v=HUBNt18RFbo&t=851s. Accessed 2 Apr. 2021.
+ 
+
+‌
+‌
 
 
 ‌
