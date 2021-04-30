@@ -16,6 +16,8 @@ print(dataset.head(1))
 
 variable_summary = dataset.groupby("variety").describe()
 # Describes all variables grouped by variety of flower
+# Adapted from:
+# https://stackoverflow.com/questions/19124148/modify-output-from-python-pandas-describe
 
 variable_summary.to_csv("summary.txt")
 #saves the summary as a text file
@@ -48,7 +50,9 @@ print(virginica.describe())
 def histograms(attribute):
     # Takes in an flower attribute
     # Displays a histogram with all variety of flower
-
+    # Adapted from:
+    # https://towardsdatascience.com/visualizing-statistical-plots-with-seaborn-6b6e60ce5e71
+    
     sns.distplot(setosa[attribute], label = "Iris setosa")
     sns.distplot(virginica[attribute], label = "Iris virginica")
     sns.distplot(versicolor[attribute],label = "Iris versicolor")
@@ -58,6 +62,9 @@ def histograms(attribute):
     plt.savefig(attribute + ".png")
     plt.show()
 
+# -------------------------- #
+
+## SCATTERPLOTS:
 
 def scatterplot(attribute1, attribute2):
     # Takes two attributes
@@ -71,6 +78,12 @@ def scatterplot(attribute1, attribute2):
     plt.savefig(attribute1 +"-"+ attribute2 + ".png")
     plt.show()
 
+# -------------------------- #
+
+## MATRIX:
+# Matrix with all previous histograms and scatterplots
+# adapted from:
+# https://www.tutorialspoint.com/seaborn/seaborn_pair_grid.htm
 
 x = sns.PairGrid(dataset, hue="variety")
 x.map_diag(sns.histplot)
@@ -79,6 +92,7 @@ x.add_legend()
 plt.savefig("matrix.png")
 plt.show()
 
+# -------------------------- #
 histograms("petal_width")
 histograms("sepal_length")
 histograms("sepal_width")
