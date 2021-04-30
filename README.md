@@ -259,8 +259,20 @@ def scatterplot(attribute1, attribute2):
 ```
 ![Variety Scatterplot](petal_width-petal_lenght.png)
 ![Variety Scatterplot](sepal_width-sepal_length.png)
+![Variety Scatterplot](sepal_width-petal_width.png)
+![Variety Scatterplot](sepal_length-petal_lenght.png)
 
+And a final matrix with all the previous data:
 
+```python
+x = sns.PairGrid(dataset, hue="variety")
+x.map_diag(sns.histplot)
+x.map_offdiag(sns.scatterplot)
+x.add_legend()
+plt.savefig("matrix.png")
+plt.show()
+```
+![Matrix](matrix.png)
 
 We can see that petal lenght and petal width are the attributes that most efficiently differenciate the Iris-Setosa variety.
 
